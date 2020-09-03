@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import client from './client';
+import { ApolloProvider } from "@apollo/client";
+import LanguageList from './components/language-list';
 
 const App = () => {
   return (
-    <h1>Hello</h1>
+    <ApolloProvider client={client}>
+      <React.StrictMode>
+        <LanguageList />
+      </React.StrictMode>
+    </ApolloProvider>
   );
 }
 
