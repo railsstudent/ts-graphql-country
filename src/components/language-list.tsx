@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_LANGUAGES } from '../graphql/queries';
+import { GET_LANGUAGES } from '../graphql/get-languags';
 import { Language } from './types';
 import LanguageCard from './language-card';
 
@@ -25,7 +25,7 @@ const LanguageList = () => {
             <h2>Languages</h2>
             <ul>
                 { languages.map(language => 
-                    <LanguageCard key={language._id} language={language} />) 
+                    <LanguageCard key={language.id} language={language} />) 
                 }
            </ul>
         </div>

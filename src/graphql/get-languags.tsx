@@ -14,15 +14,14 @@ export const GET_LANGUAGES = gql`
                 "German",
                 "Dutch"] },   
             orderBy: [name_asc]) {
-                _id
+                id: _id
                 name
                 nativeName
                 countries {
-                    _id
+                    id: _id
                     name
                     flag {
                         emoji
-                        svgFile
                     }
                 }
         }

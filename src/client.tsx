@@ -1,12 +1,13 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 // import { GET_LANGUAGES } from './graphql/queries';
 
 const uri = 'https://countries-274616.ew.r.appspot.com';
+const link = new HttpLink({ uri });
 
 // Create an Apollo Client
 const client = new ApolloClient({
-    uri,
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    link
 });
 
 // client.query({
