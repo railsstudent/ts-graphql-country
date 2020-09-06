@@ -3,8 +3,19 @@ import { useQuery } from '@apollo/client';
 import { GET_LANGUAGES } from '../graphql/get-languags';
 import { Language } from './types';
 import LanguageCard from './language-card';
+import { RouteComponentProps } from '@reach/router';
 
-const LanguageList = () => {
+const LanguageCards = (languages: Language[]) => {
+    return (
+        <ul>
+            {   languages.map(language => 
+                    <li key={language.id}><LanguageCard key={language.id} language={language} /></li>)
+            }
+        </ul>
+    );
+}
+
+const LanguageList = (props: RouteComponentProps) => {
     const { loading, error, data  } = useQuery(GET_LANGUAGES);
 
     if (loading) {
@@ -19,15 +30,10 @@ const LanguageList = () => {
         console.log('languages', data.languages);
     }
 
-    const languages: Language[] = data.languages;
     return (
         <div>
             <h2>Languages</h2>
-            <ul>
-                { languages.map(language => 
-                    <LanguageCard key={language.id} language={language} />) 
-                }
-           </ul>
+            { LanguageCards(data.languages) }
         </div>
     );
 }

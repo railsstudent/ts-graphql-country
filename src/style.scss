@@ -9,7 +9,17 @@ body {
     min-height: 100vh;
 }
 
-h1 {
+h2 {
     font-style: italic;
-    color: goldenrod;
+    color: plum;
+}
+
+.country {
+    display: inline-block
+}
+
+.emoji {
+    cursor: pointer;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 }

@@ -20,7 +20,9 @@ export const GET_LANGUAGES = gql`
                 countries {
                     id: _id
                     name
+                    population
                     flag {
+                        id: _id
                         emoji
                     }
                 }

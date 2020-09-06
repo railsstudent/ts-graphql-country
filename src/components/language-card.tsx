@@ -1,24 +1,33 @@
 import React from 'react';
 import { Language } from './types';
+import { Link } from '@reach/router';
 
-type Prop = {
+interface LanguageProp {
     language: Language
 };
 
-const LanguageCard = ({ language }: Prop) => {
+const LanguageCard = ({ language }: LanguageProp) => {
+    const { id, name, nativeName, countries } = language;
+    const emojiCountries = countries.filter(c => c && c.flag && !!c.flag.emoji);
+    const totalPopulation = countries.reduce((acc, c) => acc + c.population, 0);
+
     return (
         <div>
+            <p>Name: <Link to={`countries/${name}`} state={{ name, nativeName }}>{ name } ({ nativeName })</Link></p>
             <div>
-                <label>
-                    Name:
-                    <span>{ language.name }</span>
-                </label>
-            </div>
-            <div>
-                <label>
-                    Native Name:
-                    <span>{ language.nativeName }</span>
-                </label>
+                <p>Countries (Total: {countries.length})</p>
+                <p>Total Population: {totalPopulation.toLocaleString()} </p>
+                <div>
+                    {
+                        emojiCountries.map(country => {
+                            const { id: countryId, name: countryName, flag: { emoji }, population } = country;
+                            const title = `${countryName}: ${population.toLocaleString()}`;
+                            return <div className="country" title={title} key={countryId}>
+                                <span className="emoji">{ emoji}</span>
+                            </div>;
+                        })
+                    }
+                </div>
             </div>
         </div>
     );
