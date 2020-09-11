@@ -9,6 +9,7 @@ export const GET_LANGUAGE_COUNTRIES = gql`
                 name
                 nativeName
                 capital
+                population
                 flag {
                     id: _id
                     svgFile
@@ -18,6 +19,10 @@ export const GET_LANGUAGE_COUNTRIES = gql`
                     code
                     name
                     symbol
+                }
+                timezones (orderBy: [_id_asc]) {
+                    id: _id
+                    name
                 }
             }
         }

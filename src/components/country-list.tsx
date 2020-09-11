@@ -26,7 +26,7 @@ const renderCountries = (prop: CountryProps, data: Data) => {
             <div>
                 <Link to="/">Back</Link>
             </div>
-            <p>Countries that speak {descName}</p>
+            <h2>Countries that speak {descName}</h2>
             { countries.map(country => <CountryCard key={country.id} country={country} />)}
         </div>
     );

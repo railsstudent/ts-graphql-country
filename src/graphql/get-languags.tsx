@@ -4,7 +4,6 @@ export const GET_LANGUAGES = gql`
     query getLanguages {
         languages: Language(
             filter: { name_in: [
-                "Chinese",
                 "Korean"
                 "Japanese",
                 "English", 
@@ -17,7 +16,7 @@ export const GET_LANGUAGES = gql`
                 id: _id
                 name
                 nativeName
-                countries {
+                countries(orderBy: [name_asc]) {
                     id: _id
                     name
                     population

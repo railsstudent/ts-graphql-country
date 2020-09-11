@@ -14,11 +14,16 @@ export type Language = {
     countries: Country[];
 };
 
-type Currency = {
+export type Currency = {
     id: string;
     code: string;
     name: string;
     symbol: string;
+}
+
+export type Timezone = {
+    id: string;
+    name: string;
 }
 
 export type CountryDetails = {
@@ -26,9 +31,11 @@ export type CountryDetails = {
     name: string;
     nativeName: string;
     capital: string;
+    population: number;
     currencies: Currency[];
     flag: {
         id: string;
         svgFile: string;
     }
+    timezones: Timezone[];
 };
