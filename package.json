@@ -8,7 +8,9 @@
     "dev": "parcel src/index.html",
     "lint": "tslint --project .",
     "build": "parcel build src/index.html",
-    "start:prod": "npx serve dist -l 8000"
+    "build-gh": "parcel build src/index --out-dir ./dist/ts-graphql-country",
+    "start:prod": "npx serve dist -l 8000",
+    "clean": "rm -rf ./dist/"
   },
   "keywords": [
     "typescript",
