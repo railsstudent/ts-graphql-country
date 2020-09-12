@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel src/index.html",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "build": "parcel build src/index.html",
+    "start:prod": "npx serve dist -l 8000"
   },
   "keywords": [
     "typescript",
