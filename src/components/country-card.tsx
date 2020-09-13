@@ -6,7 +6,7 @@ interface CountryProps {
 };
 
 const currencyComp = (currencies: Currency[]) => {
-    console.log(currencies);
+    // console.log(currencies);
     return (
         currencies.map(currency => {
             const { id, code, symbol, name } = currency;
@@ -33,7 +33,7 @@ const timezoneList = (timezones: Timezone[]) => {
 }
 
 const CountryCard = ({ country }: CountryProps) => {
-    console.log(country);
+    // console.log(country);
     const { id, name, nativeName, capital, population, currencies, flag: { id: flagId, svgFile }, timezones } = country;
 
     const desc = `Flag of ${name}`;
