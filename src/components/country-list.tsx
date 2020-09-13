@@ -10,17 +10,20 @@ interface CountryProps extends RouteComponentProps {
 };
 
 type Data = {
-    Language: {
-        id: string;
-        countries: CountryDetails[];
-    }[];
+    Language: Language[];
 }
 
-const renderCountries = (prop: CountryProps, data: Data) => {
-    const state = prop.location?.state as { name: string; nativeName: string };
-    const descName = `${state.name} (${state.nativeName})`;
-    const countries: CountryDetails[] = data && data.Language && data.Language.length > 0  ? 
-        data.Language[0].countries : [];
+type Language = {
+    id: string;
+    name: string;
+    nativeName: string;
+    countries: CountryDetails[];
+};
+
+const renderCountries = (languages: Language[]) => {
+    const language = languages && languages.length > 0 ? languages[0] : { name: '', nativeName: '', countries: [] };
+    const descName = `${language.name} (${language.nativeName})`;
+    const countries: CountryDetails[] = language.countries && language.countries.length > 0 ? language.countries : [];
     return (
         <div>
             <div>
@@ -38,7 +41,7 @@ const CountryList = (prop: CountryProps) => {
         name: params.languageName
     };
 
-    if (prop.location && prop.location.state) {
+    if (prop.location) {
         const { loading, error, data } = useQuery(GET_LANGUAGE_COUNTRIES, {
             variables: { filter }
         });
@@ -55,7 +58,7 @@ const CountryList = (prop: CountryProps) => {
         //     console.log(data.Language);
         // }
 
-        return renderCountries(prop, data);
+        return renderCountries(data.Language);
     }
 
     return (
