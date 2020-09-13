@@ -8,9 +8,11 @@
     "dev": "parcel src/index.html",
     "lint": "tslint --project .",
     "build": "parcel build src/index.html",
-    "build-gh": "parcel build src/index --out-dir ./dist/ts-graphql-country",
+    "build-gh": "parcel build src/index.html --public-url /ts-graphql-country/",
+    "deploy": "gh-pages -d dist user.name Connie Leung user.email cleung334@gmail.com ",
     "start:prod": "npx serve dist -l 8000",
-    "clean": "rm -rf ./dist/"
+    "clean": "rm -rf ./dist/",
+    "deploy-surge": "npm run build && surge ./dist https://tart-connection-1.surge.sh"
   },
   "keywords": [
     "typescript",
@@ -27,6 +29,7 @@
     "@types/reach__router": "^1.3.5",
     "@types/react": "^16.9.48",
     "@types/react-dom": "^16.9.8",
+    "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.1.1",
     "tslint": "^6.1.3",

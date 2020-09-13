@@ -9,11 +9,19 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup Node
+      uses: actions/setup-node@v2-beta
+      with:
+          node-version: 12
  
       # ( Build to ./dist or other directory... )
       - name: Clean install dependencies
         run: npm ci
- 
+
+      - name: Remove dist
+        run: npm run clean
+
       - name: Build app
         run: npm run build
  
