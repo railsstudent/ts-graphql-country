@@ -13,7 +13,7 @@ const LanguageCard = ({ language }: LanguageProp) => {
 
     return (
         <div>
-            <p>Name: <Link to={`countries/${name}`}>{ name } ({ nativeName })</Link></p>
+            <p>Name: <Link to={`countries/${name}`}>{ name }/{ nativeName }</Link></p>
             <div>
                 <p>Countries (Total: {countries.length})</p>
                 <p>Total Population: {totalPopulation.toLocaleString()} </p>
