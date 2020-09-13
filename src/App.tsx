@@ -4,20 +4,16 @@ import client from './client';
 import { ApolloProvider } from "@apollo/client";
 import LanguageList from './components/language-list';
 import CountryList from './components/country-list';
-import { createHistory, LocationProvider, Router } from '@reach/router';
+import { Router } from '@reach/router';
 
 const App = () => {
-  const history = createHistory(window);
-  
   return (
     <ApolloProvider client={client}>
       <React.StrictMode>
-        <LocationProvider history={history}>
-          <Router>
-            <LanguageList path="/" />
-            <CountryList path="countries/:languageName" />
-          </Router>
-        </LocationProvider>
+        <Router>
+          <LanguageList path="/" />
+          <CountryList path="countries/:languageName" />
+        </Router>
       </React.StrictMode>
     </ApolloProvider>
   );

@@ -22,14 +22,14 @@ type Language = {
 
 const renderCountries = (languages: Language[]) => {
     const language = languages && languages.length > 0 ? languages[0] : { name: '', nativeName: '', countries: [] };
-    const descName = `${language.name} (${language.nativeName})`;
+    const descName = `${language.name}/${language.nativeName}`;
     const countries: CountryDetails[] = language.countries && language.countries.length > 0 ? language.countries : [];
     return (
         <div>
             <div>
                 <Link to="/">Back</Link>
             </div>
-            <h2>Countries that speak {descName}</h2>
+            <h2>Countries that speak {descName} (Total: {countries.length})</h2>
             { countries.map(country => <CountryCard key={country.id} country={country} />)}
         </div>
     );
