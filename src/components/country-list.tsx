@@ -9,10 +9,6 @@ interface CountryProps extends RouteComponentProps {
     languageName?: string;
 };
 
-type Data = {
-    Language: Language[];
-}
-
 type Language = {
     id: string;
     name: string;
