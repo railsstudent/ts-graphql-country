@@ -26,9 +26,9 @@ const LanguageList = (props: RouteComponentProps) => {
         return <p>Error occurs while loading foreign languages</p>;
     }
 
-    if (data && data.languages) {
-        console.log('languages', data.languages);
-    }
+    // if (data && data.languages) {
+    //     console.log('languages', data.languages);
+    // }
 
     return (
         <div>

@@ -51,9 +51,9 @@ const CountryList = (prop: CountryProps) => {
             return <p>Error occurs while loading countries</p>;
         }
 
-        if (data && data.Language) {
-            console.log(data.Language);
-        }
+        // if (data && data.Language) {
+        //     console.log(data.Language);
+        // }
 
         return renderCountries(prop, data);
     }
