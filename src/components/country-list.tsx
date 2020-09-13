@@ -35,13 +35,25 @@ const renderCountries = (languages: Language[]) => {
     );
 }
 
+const acceptableLangs = [
+    "Korean",
+    "Japanese",
+    "English", 
+    "Spanish",
+    "Portuguese",
+    "French",
+    "German",
+    "Dutch"
+];
+
 const CountryList = (prop: CountryProps) => {
     const params = useParams();
+    const { languageName } = params;
     const filter = {
-        name: params.languageName
+        name: languageName
     };
 
-    if (prop.location) {
+    if (prop.location && acceptableLangs.indexOf(languageName) >= 0) {
         const { loading, error, data } = useQuery(GET_LANGUAGE_COUNTRIES, {
             variables: { filter }
         });

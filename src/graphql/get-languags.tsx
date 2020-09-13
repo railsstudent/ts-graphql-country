@@ -4,7 +4,7 @@ export const GET_LANGUAGES = gql`
     query getLanguages {
         languages: Language(
             filter: { name_in: [
-                "Korean"
+                "Korean",
                 "Japanese",
                 "English", 
                 "Spanish",
