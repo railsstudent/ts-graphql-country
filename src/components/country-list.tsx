@@ -4,6 +4,7 @@ import { RouteComponentProps, Link, useParams } from '@reach/router';
 import { GET_LANGUAGE_COUNTRIES } from '../graphql/get-language-countries';
 import { CountryDetails } from './types';
 import CountryCard from './country-card';
+import { acceptableLangs } from '../reactive-vars';
 
 interface CountryProps extends RouteComponentProps {
     languageName?: string;
@@ -30,17 +31,6 @@ const renderCountries = (languages: Language[]) => {
         </div>
     );
 }
-
-const acceptableLangs = [
-    "Korean",
-    "Japanese",
-    "English", 
-    "Spanish",
-    "Portuguese",
-    "French",
-    "German",
-    "Dutch"
-];
 
 const CountryList = (prop: CountryProps) => {
     const params = useParams();
