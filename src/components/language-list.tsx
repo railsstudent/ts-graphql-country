@@ -8,15 +8,17 @@ import { RouteComponentProps } from '@reach/router';
 const LanguageCards = (languages: Language[]) => {
     return (
         <ul>
-            {   languages.map(language => 
-                    <li key={language.id}><LanguageCard key={language.id} language={language} /></li>)
-            }
+            {languages.map((language) => (
+                <li key={language.id}>
+                    <LanguageCard key={language.id} language={language} />
+                </li>
+            ))}
         </ul>
     );
-}
+};
 
 const LanguageList = (props: RouteComponentProps) => {
-    const { loading, error, data  } = useQuery(GET_LANGUAGES);
+    const { loading, error, data } = useQuery(GET_LANGUAGES);
 
     if (loading) {
         return <p>Loading foreign languages...</p>;
@@ -33,9 +35,9 @@ const LanguageList = (props: RouteComponentProps) => {
     return (
         <div>
             <h2>Foreign Languages</h2>
-            { LanguageCards(data.languages) }
+            {LanguageCards(data.languages)}
         </div>
     );
-}
+};
 
 export default LanguageList;

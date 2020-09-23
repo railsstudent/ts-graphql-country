@@ -4,7 +4,7 @@ export type Country = {
     population: number;
     flag: {
         emoji: any;
-    }
+    };
 };
 
 export type Language = {
@@ -19,12 +19,12 @@ export type Currency = {
     code: string;
     name: string;
     symbol: string;
-}
+};
 
 export type Timezone = {
     id: string;
     name: string;
-}
+};
 
 export type CountryDetails = {
     id: string;
@@ -36,6 +36,6 @@ export type CountryDetails = {
     flag: {
         id: string;
         svgFile: string;
-    }
+    };
     timezones: Timezone[];
 };

@@ -6,6 +6,7 @@ export const GET_LANGUAGE_COUNTRIES = gql`
             id: _id
             name
             nativeName
+            fluency @client
             countries(orderBy: [name_asc]) {
                 id: _id
                 name
@@ -22,7 +23,7 @@ export const GET_LANGUAGE_COUNTRIES = gql`
                     name
                     symbol
                 }
-                timezones (orderBy: [_id_asc]) {
+                timezones(orderBy: [_id_asc]) {
                     id: _id
                     name
                 }
