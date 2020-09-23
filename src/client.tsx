@@ -8,7 +8,7 @@ const link = new HttpLink({ uri });
 // Create an Apollo Client
 const client = new ApolloClient({
     cache,
-    link
+    link,
 });
 
 // client.query({

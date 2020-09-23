@@ -1,22 +1,25 @@
-import { InMemoryCache } from "@apollo/client";
-import { fleuncyVar } from "./reactive-vars";
+import { InMemoryCache } from '@apollo/client';
+import { fleuncyVar, FluencyLevel } from './reactive-vars';
 
 const typePolicies = {
-    Query: {
+    Language: {
         fields: {
             fluency: {
-                read(x: any, data: any) {
-                    console.log('variables', data);
-                    const result = fleuncyVar();
-                    return result;
-                }
-            }
-        }
-    }
-}
+                read(_: any, { variables }: any) {
+                    const {
+                        filter: { name = '' },
+                    } = variables || {};
+                    return (
+                        fleuncyVar()[name as string] || FluencyLevel.DO_NOT_KNOW
+                    );
+                },
+            },
+        },
+    },
+};
 
 const cache = new InMemoryCache({
-    typePolicies
+    typePolicies,
 });
 
 export default cache;

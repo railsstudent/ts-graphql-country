@@ -12,7 +12,8 @@
     "deploy": "gh-pages -d dist user.name Connie Leung user.email cleung334@gmail.com ",
     "start:prod": "npx serve dist -l 8000",
     "clean": "rm -rf ./dist/",
-    "deploy-surge": "npm run clean && npm run build && mv ./dist/index.html ./dist/200.html && surge ./dist https://tart-connection-1.surge.sh"
+    "deploy-surge": "npm run clean && npm run build && mv ./dist/index.html ./dist/200.html && surge ./dist https://tart-connection-1.surge.sh",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "keywords": [
     "typescript",
@@ -47,5 +48,11 @@
   },
   "browserslist": [
     "last 2 Chrome versions"
-  ]
+  ],
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true
+  }
 }
