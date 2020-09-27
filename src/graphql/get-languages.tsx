@@ -5,6 +5,7 @@ export const GET_LANGUAGES = gql`
         languages: Language(
             filter: {
                 name_in: [
+                    "Chinese"
                     "Korean"
                     "Japanese"
                     "English"
@@ -26,7 +27,7 @@ export const GET_LANGUAGES = gql`
                 population
                 flag {
                     id: _id
-                    emoji
+                    emoji: svgFile
                 }
             }
         }

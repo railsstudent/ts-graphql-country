@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_LANGUAGES } from '../graphql/get-languags';
+import { GET_LANGUAGES } from '../graphql/get-languages';
 import { Language } from './types';
 import LanguageCard from './language-card';
 import { RouteComponentProps } from '@reach/router';

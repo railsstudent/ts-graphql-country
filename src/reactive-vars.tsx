@@ -1,5 +1,6 @@
 import { makeVar } from '@apollo/client';
 export const acceptableLangs = [
+    'Chinese',
     'Korean',
     'Japanese',
     'English',
@@ -11,9 +12,10 @@ export const acceptableLangs = [
 ];
 
 export enum FluencyLevel {
-    DO_NOT_KNOW = 'Does not speak the language',
+    DO_NOT_KNOW = 'I do not speak the language',
     FLUENCY = 'I speak fluently',
     LEARNING = 'I am learning the language',
+    NATIVE = 'I speak natively',
 }
 
 type Fluency = {
@@ -23,14 +25,51 @@ type Fluency = {
 };
 
 const languageFluency: Record<string, Fluency> = {
-    Korean: FluencyLevel.DO_NOT_KNOW,
-    Japanese: FluencyLevel.DO_NOT_KNOW,
-    English: FluencyLevel.FLUENCY,
-    Spanish: FluencyLevel.LEARNING,
-    Portuguese: FluencyLevel.LEARNING,
-    French: FluencyLevel.DO_NOT_KNOW,
-    German: FluencyLevel.DO_NOT_KNOW,
-    Dutch: FluencyLevel.DO_NOT_KNOW,
+    Chinese: {
+        level: FluencyLevel.NATIVE,
+        score: 6,
+        total: 6,
+    },
+    Korean: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
+    Japanese: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
+    English: {
+        level: FluencyLevel.FLUENCY,
+        score: 4,
+        total: 6,
+    },
+    Spanish: {
+        level: FluencyLevel.LEARNING,
+        score: 1,
+        total: 6,
+    },
+    Portuguese: {
+        level: FluencyLevel.LEARNING,
+        score: 0.5,
+        total: 6,
+    },
+    French: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
+    German: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
+    Dutch: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
 };
 
 export const fleuncyVar = makeVar(languageFluency);

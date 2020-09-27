@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const GET_LANGUAGE_COUNTRIES = gql`
     query LanguageCountries($filter: _LanguageFilter!) {
-        Language(first: 1, filter: $filter) {
+        language: Language(first: 1, filter: $filter) {
             id: _id
             name
             nativeName

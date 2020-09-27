@@ -6,6 +6,8 @@ import LanguageList from './components/language-list';
 import CountryList from './components/country-list';
 import { Router } from '@reach/router';
 
+import './fontawesome';
+
 const App = () => {
     return (
         <ApolloProvider client={client}>
