@@ -7,6 +7,7 @@ import CountryList from './components/country-list';
 import { Router } from '@reach/router';
 
 import './fontawesome';
+import './tailwind.output.css';
 
 const App = () => {
     return (

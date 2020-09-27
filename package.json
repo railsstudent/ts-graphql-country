@@ -5,8 +5,12 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.output.css",
+    "watch:tailwind": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/tailwind.output.css -c 'npm run build:tailwind'",
     "dev": "parcel src/index.html",
+    "start": "npm-run-all build:tailwind --parallel watch:tailwind dev",
     "lint": "tslint --project .",
+    "prebuild": "npm run build:tailwind",
     "build": "parcel build src/index.html",
     "build-gh": "parcel build src/index.html --public-url /ts-graphql-country/",
     "deploy": "gh-pages -d dist user.name Connie Leung user.email cleung334@gmail.com ",
@@ -30,7 +34,9 @@
     "@types/reach__router": "^1.3.5",
     "@types/react": "^16.9.48",
     "@types/react-dom": "^16.9.8",
+    "chokidar-cli": "^2.1.0",
     "gh-pages": "^3.1.0",
+    "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.1.1",
     "tslint": "^6.1.3",
@@ -48,7 +54,8 @@
     "graphql": "^15.3.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "tailwindcss": "^1.8.10"
   },
   "browserslist": [
     "last 2 Chrome versions"
