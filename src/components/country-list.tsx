@@ -21,25 +21,28 @@ type Language = {
     fluency: LanguageFluency;
 };
 
-const getIcon = (score: number, total: number): { icon: IconProp, css: React.CSSProperties } => {
+const getIcon = (
+    score: number,
+    total: number,
+): { icon: IconProp; css: React.CSSProperties } => {
     const percentage = (score * 100) / total;
     if (percentage >= 60) {
         return {
             icon: ['fas', 'check'],
-            css: { color: "green" }
-        }
+            css: { color: 'green' },
+        };
     } else if (percentage > 0) {
         return {
             icon: ['fas', 'check'],
-            css: { color: 'rgb(250, 180, 0)' }
-        }
+            css: { color: 'rgb(250, 180, 0)' },
+        };
     }
 
     return {
         icon: ['fas', 'times'],
-        css: { color: "red" }
-    }
-}
+        css: { color: 'red' },
+    };
+};
 
 const renderCountries = (languages: Language[]) => {
     const defaultLangauge = {
@@ -59,21 +62,27 @@ const renderCountries = (languages: Language[]) => {
         fluency: { level, score, total },
     } = language;
 
-    const { icon, css } = getIcon(score, total)
+    const { icon, css } = getIcon(score, total);
     return (
         <div>
             <div>
                 <Link to="/">Back</Link>
             </div>
             <h2>
-                Countries/Regions that speak {descName} (Total: {countries.length})
+                Countries/Regions that speak {descName} (Total:{' '}
+                {countries.length})
             </h2>
-            <div style={{display: 'flex', fontSize: '1.25rem'}}>
-                <span style={{marginRight: "0.5rem"}}>Fluency: {level}</span>
+            <div style={{ display: 'flex', fontSize: '1.25rem' }}>
+                <span style={{ marginRight: '0.5rem' }}>Fluency: {level}</span>
                 <FontAwesomeIcon icon={icon} style={css} />
             </div>
-            <div style={{display: 'flex', fontSize: '1.25rem'}}>
-                Personal Rating: <Rating score={score} total={total} style={{ color: 'rgb(250, 180, 0)' }} />
+            <div style={{ display: 'flex', fontSize: '1.25rem' }}>
+                Personal Rating:{' '}
+                <Rating
+                    score={score}
+                    total={total}
+                    style={{ color: 'rgb(250, 180, 0)' }}
+                />
             </div>
             {countries.map((country) => (
                 <CountryCard key={country.id} country={country} />
