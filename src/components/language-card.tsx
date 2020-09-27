@@ -39,7 +39,12 @@ const LanguageCard = ({ language }: LanguageProp) => {
                                 title={title}
                                 key={countryId}
                             >
-                                <span className="emoji">{emoji}</span>
+                                <img
+                                    src={emoji}
+                                    width="25"
+                                    height="auto"
+                                    style={{ marginRight: '0.25rem' }}
+                                />
                             </div>
                         );
                     })}

@@ -23,14 +23,46 @@ type Fluency = {
 };
 
 const languageFluency: Record<string, Fluency> = {
-    Korean: FluencyLevel.DO_NOT_KNOW,
-    Japanese: FluencyLevel.DO_NOT_KNOW,
-    English: FluencyLevel.FLUENCY,
-    Spanish: FluencyLevel.LEARNING,
-    Portuguese: FluencyLevel.LEARNING,
-    French: FluencyLevel.DO_NOT_KNOW,
-    German: FluencyLevel.DO_NOT_KNOW,
-    Dutch: FluencyLevel.DO_NOT_KNOW,
+    Korean: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
+    Japanese: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
+    English: {
+        level: FluencyLevel.FLUENCY,
+        score: 4,
+        total: 6,
+    },
+    Spanish: {
+        level: FluencyLevel.LEARNING,
+        score: 1,
+        total: 6,
+    },
+    Portuguese: {
+        level: FluencyLevel.LEARNING,
+        score: 0.5,
+        total: 6,
+    },
+    French: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
+    German: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
+    Dutch: {
+        level: FluencyLevel.DO_NOT_KNOW,
+        score: 0,
+        total: 6,
+    },
 };
 
 export const fleuncyVar = makeVar(languageFluency);

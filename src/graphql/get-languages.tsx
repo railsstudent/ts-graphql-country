@@ -26,7 +26,7 @@ export const GET_LANGUAGES = gql`
                 population
                 flag {
                     id: _id
-                    emoji
+                    emoji: svgFile
                 }
             }
         }
