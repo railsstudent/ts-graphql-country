@@ -39,3 +39,9 @@ export type CountryDetails = {
     };
     timezones: Timezone[];
 };
+
+export type LanguageFluency = {
+    level: string;
+    score: number;
+    total: number;
+};

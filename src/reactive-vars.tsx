@@ -1,5 +1,6 @@
 import { makeVar } from '@apollo/client';
 export const acceptableLangs = [
+    'Chinese',
     'Korean',
     'Japanese',
     'English',
@@ -11,9 +12,10 @@ export const acceptableLangs = [
 ];
 
 export enum FluencyLevel {
-    DO_NOT_KNOW = 'Does not speak the language',
+    DO_NOT_KNOW = 'I do not speak the language',
     FLUENCY = 'I speak fluently',
     LEARNING = 'I am learning the language',
+    NATIVE = 'I speak natively',
 }
 
 type Fluency = {
@@ -23,6 +25,11 @@ type Fluency = {
 };
 
 const languageFluency: Record<string, Fluency> = {
+    Chinese: {
+        level: FluencyLevel.NATIVE,
+        score: 6,
+        total: 6,
+    },
     Korean: {
         level: FluencyLevel.DO_NOT_KNOW,
         score: 0,

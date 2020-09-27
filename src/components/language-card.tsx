@@ -22,7 +22,7 @@ const LanguageCard = ({ language }: LanguageProp) => {
                 </Link>
             </p>
             <div>
-                <p>Countries (Total: {countries.length})</p>
+                <p>Countries/Regions (Total: {countries.length})</p>
                 <p>Total Population: {totalPopulation.toLocaleString()} </p>
                 <div>
                     {emojiCountries.map((country) => {
