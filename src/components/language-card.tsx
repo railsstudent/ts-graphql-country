@@ -41,7 +41,7 @@ const LanguageCard = ({ language }: LanguageProp) => {
                             >
                                 <img
                                     src={emoji}
-                                    width="25"
+                                    width="35"
                                     height="auto"
                                     style={{ marginRight: '0.25rem' }}
                                 />
