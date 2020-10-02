@@ -32,7 +32,7 @@ const LanguageList = (props: RouteComponentProps) => {
 
     return (
         <div className='font-sans p-4'>
-            <h2 className="text-2xl italic text-pink-400">Foreign Languages</h2>
+            <h2 className="text-2xl italic text-blue-400">Foreign Languages</h2>
             {LanguageCards(data.languages)}
         </div>
     );

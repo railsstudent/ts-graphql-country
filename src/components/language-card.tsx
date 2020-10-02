@@ -14,9 +14,9 @@ const LanguageCard = ({ language }: LanguageProp) => {
     const totalPopulation = countries.reduce((acc, c) => acc + c.population, 0);
 
     return (
-        <div className="p-2 mb-2 flex-grow flex-shrink" style={{ flexBasis: '300px' }}>
+        <div className="p-2 mb-2 flex-auto max-w-xs">
             <p className="text-lg text-gray-700">
-                Name:
+                <span className="mr-2">Name:</span> 
                 <Link to={`countries/${name}`} className="underline">
                     {name}/{nativeName}
                 </Link>

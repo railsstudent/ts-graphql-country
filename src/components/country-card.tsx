@@ -10,7 +10,7 @@ const currencyComp = (currencies: Currency[]) => {
     return currencies.map((currency) => {
         const { id, code, symbol, name } = currency;
         return (
-            <li key={id} style={{ marginLeft: '2rem' }}>
+            <li key={id}>
                 {name} / {code} ({symbol})
             </li>
         );
@@ -21,7 +21,7 @@ const timezoneList = (timezones: Timezone[]) => {
     return timezones.map((timezone) => {
         const { id, name } = timezone;
         return (
-            <li key={id} style={{ marginLeft: '2rem' }}>
+            <li key={id}>
                 {name}
             </li>
         );
@@ -43,8 +43,9 @@ const CountryCard = ({ country }: CountryProps) => {
 
     const desc = `Flag of ${name}`;
     return (
-        <div key={id}>
+        <div key={id} className="p-2 mb-2">
             <img
+                className="my-0 mx-auto"
                 key={flagId}
                 alt={desc}
                 src={svgFile}
@@ -52,14 +53,16 @@ const CountryCard = ({ country }: CountryProps) => {
                 height="auto"
                 title={desc}
             />
-            <p>Name: {name}</p>
-            <p>Native Name: {nativeName}</p>
-            <p>Capital: {capital}</p>
-            <p>Population: {population.toLocaleString()}</p>
-            <p>Currencies:</p>
-            <ul>{currencyComp(currencies)}</ul>
-            <p>Timezones:</p>
-            <ul>{timezoneList(timezones)}</ul>
+            <div className="text-center">
+                <p>Name: {name}</p>
+                <p>Native Name: {nativeName}</p>
+                <p>Capital: {capital}</p>
+                <p>Population: {population.toLocaleString()}</p>
+                <p>Currencies:</p>
+                <ul>{currencyComp(currencies)}</ul>
+                <p>Timezones:</p>
+                <ul>{timezoneList(timezones)}</ul>
+            </div>
         </div>
     );
 };

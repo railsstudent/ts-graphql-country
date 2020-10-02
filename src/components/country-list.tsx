@@ -26,21 +26,20 @@ const getIcon = (
     total: number,
 ): { icon: IconProp; css: React.CSSProperties } => {
     const percentage = (score * 100) / total;
+    const icon: IconProp = percentage > 0 ? ['fas', 'check'] : ['fas', 'times'];
+    let css: { color: string };
+
     if (percentage >= 60) {
-        return {
-            icon: ['fas', 'check'],
-            css: { color: 'green' },
-        };
+        css = { color: 'green' };
     } else if (percentage > 0) {
-        return {
-            icon: ['fas', 'check'],
-            css: { color: 'rgb(250, 180, 0)' },
-        };
+        css = { color: 'rgb(250, 180, 0)' };
+    } else {
+        css = { color: 'red' };
     }
 
     return {
-        icon: ['fas', 'times'],
-        css: { color: 'red' },
+        icon,
+        css
     };
 };
 
@@ -64,29 +63,31 @@ const renderCountries = (languages: Language[]) => {
 
     const { icon, css } = getIcon(score, total);
     return (
-        <div>
+        <div className="p-4">
             <div>
-                <Link to="/">Back</Link>
+                <Link to="/" className="underline text-gray-800">Back</Link>
             </div>
-            <h2>
-                Countries/Regions that speak {descName} (Total:{' '}
+            <h2 className="text-xl italic text-blue-400">
+                Countries/Regions that speak {descName} (<span className="mr-2">Total:</span>
                 {countries.length})
             </h2>
-            <div style={{ display: 'flex', fontSize: '1.25rem' }}>
-                <span style={{ marginRight: '0.5rem' }}>Fluency: {level}</span>
+            <div className="flex items-center text-lg text-gray-600">
+                <span className="mr-2">Fluency: {level}</span>
                 <FontAwesomeIcon icon={icon} style={css} />
             </div>
-            <div style={{ display: 'flex', fontSize: '1.25rem' }}>
-                Personal Rating:{' '}
+            <div className="flex items-center text-lg mb-2 text-gray-600">
+                <span className="mr-2">Personal Rating:</span>
                 <Rating
                     score={score}
                     total={total}
                     style={{ color: 'rgb(250, 180, 0)' }}
                 />
             </div>
-            {countries.map((country) => (
-                <CountryCard key={country.id} country={country} />
-            ))}
+            <div className="flex flex-wrap">
+                {countries.map((country) => (
+                    <CountryCard key={country.id} country={country} />
+                ))}
+            </div>
         </div>
     );
 };
@@ -118,12 +119,12 @@ const CountryList = (prop: CountryProps) => {
     }
 
     return (
-        <>
+        <div className="p-4">
             <div>
-                <Link to="/">Back</Link>
+                <Link to="/" className="underline text-gray-800">Back</Link>
             </div>
             <p>Countries not found</p>
-        </>
+        </div>
     );
 };
 
