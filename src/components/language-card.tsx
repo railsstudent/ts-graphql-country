@@ -14,17 +14,17 @@ const LanguageCard = ({ language }: LanguageProp) => {
     const totalPopulation = countries.reduce((acc, c) => acc + c.population, 0);
 
     return (
-        <div>
-            <p>
-                Name:{' '}
-                <Link to={`countries/${name}`}>
+        <div className="p-2 mb-2 flex-grow flex-shrink" style={{ flexBasis: '300px' }}>
+            <p className="text-lg text-gray-700">
+                Name:
+                <Link to={`countries/${name}`} className="underline">
                     {name}/{nativeName}
                 </Link>
             </p>
-            <div>
-                <p>Countries/Regions (Total: {countries.length})</p>
-                <p>Total Population: {totalPopulation.toLocaleString()} </p>
-                <div>
+            <div className="countries">
+                <p className="text-base text-gray-600">Countries/Regions (Total: {countries.length})</p>
+                <p className="text-base text-gray-600">Total Population: {totalPopulation.toLocaleString()} </p>
+                <div className="flags">
                     {emojiCountries.map((country) => {
                         const {
                             id: countryId,
@@ -35,16 +35,16 @@ const LanguageCard = ({ language }: LanguageProp) => {
                         const title = `${countryName}: ${population.toLocaleString()}`;
                         return (
                             <div
-                                className="country"
+                                className='inline-block'
                                 title={title}
                                 key={countryId}
                             >
                                 <img
                                     src={emoji}
+                                    className='mx-1'
+                                    style={{ cursor: 'pointer' }}
                                     width="35"
                                     height="auto"
-                                    className="emoji"
-                                    style={{ marginRight: '0.25rem' }}
                                 />
                             </div>
                         );

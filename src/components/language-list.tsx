@@ -7,13 +7,11 @@ import { RouteComponentProps } from '@reach/router';
 
 const LanguageCards = (languages: Language[]) => {
     return (
-        <ul>
+        <div className="flex flex-wrap" style={{ alignContent: "stretch" }}>
             {languages.map((language) => (
-                <li key={language.id}>
-                    <LanguageCard key={language.id} language={language} />
-                </li>
+                <LanguageCard key={language.id} language={language} />
             ))}
-        </ul>
+        </div>
     );
 };
 
@@ -33,8 +31,8 @@ const LanguageList = (props: RouteComponentProps) => {
     // }
 
     return (
-        <div>
-            <h2>Foreign Languages</h2>
+        <div className='font-sans p-4'>
+            <h2 className="text-2xl italic text-pink-400">Foreign Languages</h2>
             {LanguageCards(data.languages)}
         </div>
     );
