@@ -45,3 +45,11 @@ export type LanguageFluency = {
     score: number;
     total: number;
 };
+
+export type CountryLanguage = {
+    id: string;
+    name: string;
+    nativeName: string;
+    countries: CountryDetails[];
+    fluency: LanguageFluency;
+};

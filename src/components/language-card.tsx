@@ -7,7 +7,7 @@ interface LanguageProp {
 }
 
 const LanguageCard = ({ language }: LanguageProp) => {
-    const { id, name, nativeName, countries } = language;
+    const { name, nativeName, countries } = language;
     const emojiCountries = countries.filter(
         (c) => c && c.flag && !!c.flag.emoji,
     );
