@@ -13,10 +13,10 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        'card': '25rem'
+        'card': '20rem'
       },
       width: {
-        '25-rem': '25rem'
+        '20-rem': '20rem'
       }
     }
   },

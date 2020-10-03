@@ -15,8 +15,8 @@ interface CountryProps extends RouteComponentProps {
 
 const BackLink = () => {
     return (
-        <div>
-            <Link to="/" className="underline text-gray-800 italic text-xl">
+        <div className="mt-2">
+            <Link to="/" className="underline text-gray-800 italic text-lg">
                 Back
             </Link>
         </div>
@@ -90,13 +90,14 @@ const LanguageLevel = (props: LanguageLevelProps) => {
 
 const renderCountries = (languages: CountryLanguage[]) => {
     const defaultLangauge = {
+        name: `default-${Date.now()}`,
         countries: [] as CountryDetails[],
     };
     const [language = defaultLangauge] = languages || [];
     const { countries } = language;
     return (
         <div className="p-4">
-            <LanguageLevel languages={languages} />
+            <LanguageLevel key={language.name} languages={languages} />
             <div
                 className="flex flex-wrap mt-6"
                 style={{ alignContent: 'stretch' }}
