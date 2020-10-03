@@ -7,7 +7,7 @@ import { RouteComponentProps } from '@reach/router';
 
 const LanguageCards = (languages: Language[]) => {
     return (
-        <div className="flex flex-wrap" style={{ alignContent: "stretch" }}>
+        <div className="flex flex-wrap" style={{ alignContent: 'stretch' }}>
             {languages.map((language) => (
                 <LanguageCard key={language.id} language={language} />
             ))}
@@ -31,7 +31,7 @@ const LanguageList = (props: RouteComponentProps) => {
     // }
 
     return (
-        <div className='font-sans p-4'>
+        <div className="font-sans p-4">
             <h2 className="text-2xl italic text-blue-400">Foreign Languages</h2>
             {LanguageCards(data.languages)}
         </div>

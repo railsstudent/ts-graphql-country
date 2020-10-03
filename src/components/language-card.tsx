@@ -16,14 +16,18 @@ const LanguageCard = ({ language }: LanguageProp) => {
     return (
         <div className="p-2 mb-2 flex-auto max-w-xs">
             <p className="text-lg text-gray-700">
-                <span className="mr-2">Name:</span> 
+                <span className="mr-2">Name:</span>
                 <Link to={`countries/${name}`} className="underline">
                     {name}/{nativeName}
                 </Link>
             </p>
             <div className="countries">
-                <p className="text-base text-gray-600">Countries/Regions (Total: {countries.length})</p>
-                <p className="text-base text-gray-600">Total Population: {totalPopulation.toLocaleString()} </p>
+                <p className="text-base text-gray-600">
+                    Countries/Regions (Total: {countries.length})
+                </p>
+                <p className="text-base text-gray-600">
+                    Total Population: {totalPopulation.toLocaleString()}{' '}
+                </p>
                 <div className="flags">
                     {emojiCountries.map((country) => {
                         const {
@@ -35,13 +39,13 @@ const LanguageCard = ({ language }: LanguageProp) => {
                         const title = `${countryName}: ${population.toLocaleString()}`;
                         return (
                             <div
-                                className='inline-block'
+                                className="inline-block"
                                 title={title}
                                 key={countryId}
                             >
                                 <img
                                     src={emoji}
-                                    className='mx-1'
+                                    className="mx-1"
                                     style={{ cursor: 'pointer' }}
                                     width="35"
                                     height="auto"

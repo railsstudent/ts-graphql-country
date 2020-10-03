@@ -10,7 +10,7 @@ const currencyComp = (currencies: Currency[]) => {
     return currencies.map((currency) => {
         const { id, code, symbol, name } = currency;
         return (
-            <li key={id}>
+            <li key={id} className="text-gray-600 text-base">
                 {name} / {code} ({symbol})
             </li>
         );
@@ -21,7 +21,7 @@ const timezoneList = (timezones: Timezone[]) => {
     return timezones.map((timezone) => {
         const { id, name } = timezone;
         return (
-            <li key={id}>
+            <li key={id} className="text-gray-600 text-base">
                 {name}
             </li>
         );
@@ -43,7 +43,11 @@ const CountryCard = ({ country }: CountryProps) => {
 
     const desc = `Flag of ${name}`;
     return (
-        <div key={id} className="p-2 mb-2">
+        <div
+            key={id}
+            className="p-2 mb-2 flex-auto max-w-card"
+            style={{ width: '25rem' }}
+        >
             <img
                 className="my-0 mx-auto"
                 key={flagId}
@@ -54,13 +58,17 @@ const CountryCard = ({ country }: CountryProps) => {
                 title={desc}
             />
             <div className="text-center">
-                <p>Name: {name}</p>
-                <p>Native Name: {nativeName}</p>
-                <p>Capital: {capital}</p>
-                <p>Population: {population.toLocaleString()}</p>
-                <p>Currencies:</p>
+                <p className="text-gray-800 text-base">Name: {name}</p>
+                <p className="text-gray-600 text-base">
+                    Native Name: {nativeName}
+                </p>
+                <p className="text-gray-800 text-base">Capital: {capital}</p>
+                <p className="text-gray-600 text-base">
+                    Population: {population.toLocaleString()}
+                </p>
+                <p className="text-gray-800 text-base">Currencies:</p>
                 <ul>{currencyComp(currencies)}</ul>
-                <p>Timezones:</p>
+                <p className="text-gray-800 text-base">Timezones:</p>
                 <ul>{timezoneList(timezones)}</ul>
             </div>
         </div>
