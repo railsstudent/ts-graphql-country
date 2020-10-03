@@ -97,7 +97,10 @@ const renderCountries = (languages: CountryLanguage[]) => {
     return (
         <div className="p-4">
             <LanguageLevel languages={languages} />
-            <div className="flex flex-wrap" style={{ alignContent: 'stretch' }}>
+            <div
+                className="flex flex-wrap mt-6"
+                style={{ alignContent: 'stretch' }}
+            >
                 {countries.map((country) => (
                     <CountryCard key={country.id} country={country} />
                 ))}

@@ -43,11 +43,7 @@ const CountryCard = ({ country }: CountryProps) => {
 
     const desc = `Flag of ${name}`;
     return (
-        <div
-            key={id}
-            className="p-2 mb-2 flex-auto max-w-card"
-            style={{ width: '25rem' }}
-        >
+        <div key={id} className="p-2 mb-2 flex-auto max-w-card w-25-rem">
             <img
                 className="my-0 mx-auto"
                 key={flagId}
@@ -58,17 +54,31 @@ const CountryCard = ({ country }: CountryProps) => {
                 title={desc}
             />
             <div className="text-center">
-                <p className="text-gray-800 text-base">Name: {name}</p>
-                <p className="text-gray-600 text-base">
-                    Native Name: {nativeName}
+                <p className="text-base">
+                    <span className="italic text-gray-800 mr-1">Name:</span>{' '}
+                    <span className="text-gray-600">{name}</span>
                 </p>
-                <p className="text-gray-800 text-base">Capital: {capital}</p>
-                <p className="text-gray-600 text-base">
-                    Population: {population.toLocaleString()}
+                <p className="text-base">
+                    <span className="italic text-gray-800 mr-1">
+                        Native Name:
+                    </span>
+                    <span className="text-gray-600">{nativeName}</span>
                 </p>
-                <p className="text-gray-800 text-base">Currencies:</p>
+                <p className="text-base">
+                    <span className="italic text-gray-800 mr-1">Capital:</span>
+                    <span className="text-gray-600">{capital}</span>
+                </p>
+                <p className="text-gray-600 text-base">
+                    <span className="italic text-gray-800 mr-1">
+                        Population:
+                    </span>
+                    <span className="text-gray-600">
+                        {population.toLocaleString()}
+                    </span>
+                </p>
+                <p className="italic text-gray-800 text-base">Currencies:</p>
                 <ul>{currencyComp(currencies)}</ul>
-                <p className="text-gray-800 text-base">Timezones:</p>
+                <p className="italic text-gray-800 text-base">Timezones:</p>
                 <ul>{timezoneList(timezones)}</ul>
             </div>
         </div>

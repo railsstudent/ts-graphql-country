@@ -14,6 +14,9 @@ module.exports = {
     extend: {
       maxWidth: {
         'card': '25rem'
+      },
+      width: {
+        '25-rem': '25rem'
       }
     }
   },
