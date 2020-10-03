@@ -13,9 +13,9 @@ interface CountryProps extends RouteComponentProps {
     languageName?: string;
 }
 
-const BackLink = () => {
+const BackLink = ({ css = 'mt-0' }) => {
     return (
-        <div className="mt-2">
+        <div className={css}>
             <Link to="/" className="underline text-gray-800 italic text-lg">
                 Back
             </Link>
@@ -97,6 +97,7 @@ const renderCountries = (languages: CountryLanguage[]) => {
     const { countries } = language;
     return (
         <div className="p-4">
+            <BackLink />
             <LanguageLevel key={language.name} languages={languages} />
             <div
                 className="flex flex-wrap mt-6"
@@ -106,7 +107,7 @@ const renderCountries = (languages: CountryLanguage[]) => {
                     <CountryCard key={country.id} country={country} />
                 ))}
             </div>
-            <BackLink />
+            <BackLink css="mt-2" />
         </div>
     );
 };

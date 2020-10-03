@@ -14,7 +14,7 @@ const LanguageCard = ({ language }: LanguageProp) => {
     const totalPopulation = countries.reduce((acc, c) => acc + c.population, 0);
 
     return (
-        <div className="p-2 mb-2 flex-auto max-w-xs">
+        <div className="flex-auto max-w-xs p-4 mb-2 mx-3 shadow-lg rounded-lg">
             <p className="text-lg text-gray-700">
                 <span className="mr-2">Name:</span>
                 <Link to={`countries/${name}`} className="underline">
@@ -23,7 +23,7 @@ const LanguageCard = ({ language }: LanguageProp) => {
             </p>
             <div className="countries">
                 <p className="text-base text-gray-600">
-                    Countries/Regions (Total: {countries.length})
+                    Countries/Regions: {countries.length}
                 </p>
                 <p className="text-base text-gray-600">
                     Total Population: {totalPopulation.toLocaleString()}{' '}
