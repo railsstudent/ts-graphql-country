@@ -39,7 +39,7 @@ const LanguageCard = ({ language }: LanguageProp) => {
                     className="text-blue-500 text-sm mt-2"
                     onClick={toggleShowCountries}
                 >
-                    {show ? 'Hide' : 'Show'} countries
+                    {show ? 'Hide' : 'Show'} countries/regions
                 </a>
                 <div className="flags">
                     {show &&
