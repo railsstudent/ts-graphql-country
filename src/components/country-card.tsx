@@ -10,7 +10,7 @@ const currencyComp = (currencies: Currency[]) => {
     return currencies.map((currency) => {
         const { id, code, symbol, name } = currency;
         return (
-            <li key={id} className="text-gray-600 text-base">
+            <li key={id} className="text-center text-gray-600 text-base">
                 {name} / {code} ({symbol})
             </li>
         );
@@ -21,9 +21,9 @@ const timezoneList = (timezones: Timezone[]) => {
     return timezones.map((timezone) => {
         const { id, name } = timezone;
         return (
-            <li key={id} className="text-gray-600 text-base">
-                {name}
-            </li>
+            <div key={id} className="text-gray-600 text-base flex-grow-0 flex-shrink" style={{flexBasis: '33.33%'}}>
+                <span className="flex justify-center">{name}</span>
+            </div>
         );
     });
 };
@@ -58,22 +58,22 @@ const CountryCard = ({ country }: CountryProps) => {
                     title={desc}
                 />
             </div>
-            <div className="text-center tracking-tighter">
-                <p className="text-base">
+            <div className="tracking-tighter">
+                <p className="text-center text-base">
                     <span className="italic text-gray-800 mr-1">Name:</span>{' '}
                     <span className="text-gray-600">{name}</span>
                 </p>
-                <p className="text-base">
+                <p className="text-center text-base">
                     <span className="italic text-gray-800 mr-1">
                         Native Name:
                     </span>
                     <span className="text-gray-600">{nativeName}</span>
                 </p>
-                <p className="text-base">
+                <p className="text-center text-base">
                     <span className="italic text-gray-800 mr-1">Capital:</span>
                     <span className="text-gray-600">{capital}</span>
                 </p>
-                <p className="text-gray-600 text-base">
+                <p className="text-center text-gray-600 text-base">
                     <span className="italic text-gray-800 mr-1">
                         Population:
                     </span>
@@ -81,10 +81,12 @@ const CountryCard = ({ country }: CountryProps) => {
                         {population.toLocaleString()}
                     </span>
                 </p>
-                <p className="italic text-gray-800 text-base">Currencies:</p>
+                <p className="text-center italic text-gray-800 text-base">Currencies:</p>
                 <ul>{currencyComp(currencies)}</ul>
-                <p className="italic text-gray-800 text-base">Timezones:</p>
-                <ul>{timezoneList(timezones)}</ul>
+                <p className="text-center italic text-gray-800 text-base">Timezones:</p>
+                <div className="flex flex-wrap">
+                    {timezoneList(timezones)}
+                </div>
             </div>
         </div>
     );
