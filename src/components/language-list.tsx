@@ -17,8 +17,9 @@ const LanguageCards = (languages: Language[]) => {
 };
 
 const LanguageList = (props: RouteComponentProps) => {
-    const { loading, error, data } = useQuery(GET_LANGUAGES, 
-        { variables: { names: acceptableLangs } });
+    const { loading, error, data } = useQuery(GET_LANGUAGES, {
+        variables: { names: acceptableLangs },
+    });
 
     if (loading) {
         return <p>Loading foreign languages...</p>;

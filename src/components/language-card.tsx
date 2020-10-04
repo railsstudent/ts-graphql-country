@@ -12,12 +12,12 @@ const LanguageCard = ({ language }: LanguageProp) => {
         (c) => c && c.flag && !!c.flag.emoji,
     );
     const totalPopulation = countries.reduce((acc, c) => acc + c.population, 0);
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
 
     const toggleShowCountries = (e: React.MouseEvent) => {
         e.preventDefault();
-        setShow(!show)
-    }
+        setShow(!show);
+    };
 
     return (
         <div className="flex-auto max-w-xs w-20-rem p-4 mb-2 mx-3 shadow-lg rounded-lg">
@@ -34,32 +34,39 @@ const LanguageCard = ({ language }: LanguageProp) => {
                 <p className="text-base text-gray-600">
                     Total Population: {totalPopulation.toLocaleString()}{' '}
                 </p>
-                <a href="#" className="text-blue-500 text-sm mt-2" onClick={toggleShowCountries}>{ show ? 'Hide' : 'Show' } countries</a>
+                <a
+                    href="#"
+                    className="text-blue-500 text-sm mt-2"
+                    onClick={toggleShowCountries}
+                >
+                    {show ? 'Hide' : 'Show'} countries
+                </a>
                 <div className="flags">
-                    {show && emojiCountries.map((country) => {
-                        const {
-                            id: countryId,
-                            name: countryName,
-                            flag: { emoji },
-                            population,
-                        } = country;
-                        const title = `${countryName}: ${population.toLocaleString()}`;
-                        return (
-                            <div
-                                className="inline-block"
-                                title={title}
-                                key={countryId}
-                            >
-                                <img
-                                    src={emoji}
-                                    className="mx-1"
-                                    style={{ cursor: 'pointer' }}
-                                    width="35"
-                                    height="auto"
-                                />
-                            </div>
-                        );
-                    })}
+                    {show &&
+                        emojiCountries.map((country) => {
+                            const {
+                                id: countryId,
+                                name: countryName,
+                                flag: { emoji },
+                                population,
+                            } = country;
+                            const title = `${countryName}: ${population.toLocaleString()}`;
+                            return (
+                                <div
+                                    className="inline-block"
+                                    title={title}
+                                    key={countryId}
+                                >
+                                    <img
+                                        src={emoji}
+                                        className="mx-1"
+                                        style={{ cursor: 'pointer' }}
+                                        width="35"
+                                        height="auto"
+                                    />
+                                </div>
+                            );
+                        })}
                 </div>
             </div>
         </div>

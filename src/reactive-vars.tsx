@@ -7,9 +7,9 @@ export const acceptableLangs = [
     'French',
     'German',
     'Dutch',
-    "Italian",
-    "Russian",
-    "Arabic"
+    'Italian',
+    'Russian',
+    'Arabic',
 ];
 
 export enum FluencyLevel {
@@ -75,7 +75,7 @@ const languageFluency: Record<string, Fluency> = {
         level: FluencyLevel.DO_NOT_KNOW,
         score: 0,
         total: 6,
-    }
+    },
 };
 
 export const fleuncyVar = makeVar(languageFluency);

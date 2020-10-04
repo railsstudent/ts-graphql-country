@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CountryDetails, Currency, Timezone } from './types';
 
 interface CountryProps {
@@ -21,11 +21,30 @@ const timezoneList = (timezones: Timezone[]) => {
     return timezones.map((timezone) => {
         const { id, name } = timezone;
         return (
-            <div key={id} className="text-gray-600 text-base flex-grow-0 flex-shrink" style={{flexBasis: '33.33%'}}>
+            <div
+                key={id}
+                className="text-gray-600 text-base flex-grow-0 flex-shrink"
+                style={{ flexBasis: '33.33%' }}
+            >
                 <span className="flex justify-center">{name}</span>
             </div>
         );
     });
+};
+
+const getSecondaryInfo = (currencies: Currency[], timezones: Timezone[]) => {
+    return (
+        <>
+            <p className="text-center italic text-gray-800 text-base">
+                Currencies:
+            </p>
+            <ul>{currencyComp(currencies)}</ul>
+            <p className="text-center italic text-gray-800 text-base">
+                Timezones:
+            </p>
+            <div className="flex flex-wrap">{timezoneList(timezones)}</div>
+        </>
+    );
 };
 
 const CountryCard = ({ country }: CountryProps) => {
@@ -40,8 +59,8 @@ const CountryCard = ({ country }: CountryProps) => {
         flag: { id: flagId, svgFile },
         timezones,
     } = country;
+    const [show, setShow] = useState(false);
 
-    const desc = `Flag of ${name}`;
     return (
         <div
             key={id}
@@ -51,11 +70,11 @@ const CountryCard = ({ country }: CountryProps) => {
                 <img
                     className="my-0 mx-auto"
                     key={flagId}
-                    alt={desc}
+                    alt={`Flag of ${name}`}
                     src={svgFile}
                     width="180"
                     height="auto"
-                    title={desc}
+                    title={`Flag of ${name}`}
                 />
             </div>
             <div className="tracking-tighter">
@@ -81,12 +100,19 @@ const CountryCard = ({ country }: CountryProps) => {
                         {population.toLocaleString()}
                     </span>
                 </p>
-                <p className="text-center italic text-gray-800 text-base">Currencies:</p>
-                <ul>{currencyComp(currencies)}</ul>
-                <p className="text-center italic text-gray-800 text-base">Timezones:</p>
-                <div className="flex flex-wrap">
-                    {timezoneList(timezones)}
+                <div className="text-center">
+                    <a
+                        href="#"
+                        className="text-blue-500 text-sm"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setShow(!show);
+                        }}
+                    >
+                        Show {show ? 'less' : 'more'}
+                    </a>
                 </div>
+                {show && getSecondaryInfo(currencies, timezones)}
             </div>
         </div>
     );
