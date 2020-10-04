@@ -1,20 +1,10 @@
 import { gql } from '@apollo/client';
 
 export const GET_LANGUAGES = gql`
-    query getLanguages {
+    query getLanguages($names: [String!]) {
         languages: Language(
             filter: {
-                name_in: [
-                    "Chinese"
-                    "Korean"
-                    "Japanese"
-                    "English"
-                    "Spanish"
-                    "Portuguese"
-                    "French"
-                    "German"
-                    "Dutch"
-                ]
+                name_in: $names
             }
             orderBy: [name_asc]
         ) {

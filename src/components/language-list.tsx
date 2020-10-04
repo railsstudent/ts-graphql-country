@@ -4,6 +4,7 @@ import { GET_LANGUAGES } from '../graphql/get-languages';
 import { Language } from './types';
 import LanguageCard from './language-card';
 import { RouteComponentProps } from '@reach/router';
+import { acceptableLangs } from '../reactive-vars';
 
 const LanguageCards = (languages: Language[]) => {
     return (
@@ -16,7 +17,8 @@ const LanguageCards = (languages: Language[]) => {
 };
 
 const LanguageList = (props: RouteComponentProps) => {
-    const { loading, error, data } = useQuery(GET_LANGUAGES);
+    const { loading, error, data } = useQuery(GET_LANGUAGES, 
+        { variables: { names: acceptableLangs } });
 
     if (loading) {
         return <p>Loading foreign languages...</p>;
