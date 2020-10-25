@@ -64,7 +64,8 @@ const CountryCard = ({ country }: CountryProps) => {
     return (
         <div
             key={id}
-            className="p-2 m-3 flex-auto max-w-card w-20-rem shadow-lg rounded-lg"
+            className="p-8 m-3 flex-initial max-w-card w-20-rem shadow-lg rounded-lg"
+            style={{flexBasis: '20rem'}}
         >
             <div className="mt-3 mb-2">
                 <img

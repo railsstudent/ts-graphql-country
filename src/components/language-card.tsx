@@ -20,7 +20,7 @@ const LanguageCard = ({ language }: LanguageProp) => {
     };
 
     return (
-        <div className="flex-auto max-w-xs w-20-rem p-4 mb-2 mx-3 shadow-lg rounded-lg">
+        <div className="flex-1 max-w-xs w-20-rem p-8 mb-2 mx-3 shadow-lg rounded-lg" style={{ flexBasis: '20rem' }}>
             <p className="text-lg text-gray-700">
                 <span className="mr-2">Name:</span>
                 <Link to={`countries/${name}`} className="underline">
